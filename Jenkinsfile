@@ -1,4 +1,8 @@
 pipeline {
+  environment {
+    registry = "dimeji/capstone-app"
+    registryCredential = ‘dockerhub’
+  }
   agent any
   stages {
     stage('build') {
@@ -13,7 +17,7 @@ pipeline {
     }
     stage('Build Docker Image') {
       steps {
-        sh 'docker build -t dimeji/capstone-app:v1 .'
+        sh 'docker build registry + ":$BUILD_NUMBER"'
       }
     }
     stage('Push Docker Image') {
