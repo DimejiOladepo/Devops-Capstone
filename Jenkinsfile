@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "dimeji/capstone-app"
-    registryCredential = ‘dockerhub’
+    registryCredential = "dockerhub"
   }
   agent any
   stages {
