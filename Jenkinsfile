@@ -17,7 +17,7 @@ pipeline {
     }
     stage('Build Docker Image') {
       steps {
-        sh 'docker build registry + ":$BUILD_NUMBER"'
+        sh 'docker build -t dimeji/capstone-app + ":$BUILD_NUMBER"'
       }
     }
     stage('Push Docker Image') {
