@@ -31,6 +31,9 @@ pipeline {
       steps {
         withAWS(credentials: "aws") {
           sh 'kubectl apply -f deployment/deployment.yaml'
+	        sh 'kubectl apply -f deployment/load-balancer.yaml' 
+	        sh 'kubectl get svc'
+	        sh 'kubectl get pods'
         }
       }
     }
