@@ -29,7 +29,9 @@ pipeline {
     }
     stage('Deployment') {
       steps {
-        sh 'echo hurrah'
+        withAWS(credentials: "aws") {
+          sh 'kubectl apply -f deployments/deployment.yaml'
+        }
       }
     }
     stage('Clean Up') {
